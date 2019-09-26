@@ -1,0 +1,29 @@
+<table border="5" cellspacing="5" cellpadding="0" width="100%">
+  <div class="data-panel jumbotron">
+    <div class="row">
+      <div class="col-sm-2">
+        <mat-card class="mat-card table">
+          <mat-select placeholder="Выберите день" class="mat-select" [{ngModel}]="dayOfWeek">
+            <mat-option value="Monday">Понедельник</mat-option>
+            <mat-option value="Tuesday">Вторник</mat-option>
+            <mat-option value="Wednesday">Среда</mat-option>
+            <mat-option value="Thursday">Четверг</mat-option>
+            <mat-option value="Friday">Пятница</mat-option>
+            <mat-option value="Saturday">Суббота</mat-option>
+          </mat-select>
+          <mat-select placeholder="Выберите время" class="mat-select" [{ngModel}]="timeOfDay">
+            <mat-option value="Breakfast">Завтрак</mat-option>
+            <mat-option value="Lunch">Обед</mat-option>
+            <mat-option value="Second Lunch">Перекус</mat-option>
+            <mat-option value="Dinner">Ужин</mat-option>
+          </mat-select>
+        </mat-card>
+      </div>
+      <div class="col-sm-6">
+        <app-meal-create-info></app-meal-create-info>
+        <hr>
+      </div>
+    </div>
+  </div>
+</table>
+
