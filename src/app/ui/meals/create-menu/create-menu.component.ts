@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl} from '@angular/forms';
+import { FoodService } from 'src/app/services/food.service';
 
 @Component({
   selector: 'app-create-menu',
@@ -8,15 +9,26 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./create-menu.component.css']
 })
 export class CreateMenuComponent implements OnInit {
-  toppings = new FormControl();
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
-  constructor(private router: Router) {
+  dayOfWeek: string;
+  timeOfDay: string;
+  food: object;
+  foods: object[];
+  foodDescription: string;
+
+  constructor(private router: Router, private foodService: FoodService) {
   }
 
   ngOnInit() {
+    this.getAllFoods();
   }
 
   back() {
+  }
+
+  getAllFoods(){
+    this.foodService.getAllFoods().subscribe((data:any[]) => {
+      this.foods = data;
+    });
   }
 }

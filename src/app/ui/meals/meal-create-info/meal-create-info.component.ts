@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-meal-create-info',
@@ -6,12 +6,16 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./meal-create-info.component.css']
 })
 export class MealCreateInfoComponent implements OnInit {
-  day = 'Понедельник';
+ 
+  @Input() day: string;
+  @Input() time: string;
+  description: string;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.description = " вводить в граммах"
   }
 
 }
