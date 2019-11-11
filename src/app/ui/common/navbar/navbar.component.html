@@ -33,7 +33,7 @@
     <button *ngIf="!isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
       Signin
     </button>
-    <button *ngIf="isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+    <button *ngIf="isLoginIn" (click)="logout()" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
       LogOut
     </button>
   </div>

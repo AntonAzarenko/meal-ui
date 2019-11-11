@@ -11,14 +11,14 @@ export class Meal {
   private _day;
   private _count;
   private _meal;
-  private _foodId;
+  private _food;
 
-  get foodId() {
-    return this._foodId;
+  get food() {
+    return this._food;
   }
 
-  set foodId(value) {
-    this._foodId = value;
+  set food(value) {
+    this._food = value;
   }
 
   get meal() {

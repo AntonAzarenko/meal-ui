@@ -12,7 +12,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class NavbarComponent implements OnInit {
 
-  public isLoginIn = false;
+   isLoginIn = false;
 
   form = new FormGroup({
     username: new FormControl(''),
@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+      this.isLoginIn = true;
       this.roles = this.tokenStorage.getAuthorities();
     }
   }
@@ -54,9 +55,10 @@ export class NavbarComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        this.isLoginIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.router.navigateByUrl('/home');
-        //this.reloadPage();
+        //this.router.navigateByUrl('/home');
+        this.reloadPage();
       },
       error => {
         console.log(error);
@@ -64,6 +66,11 @@ export class NavbarComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
-    this.isLoggedIn = true;
+  }
+
+  logout(){
+    this.tokenStorage.signOut();
+    this.isLoginIn = false;
+    this.reloadPage();
   }
 }

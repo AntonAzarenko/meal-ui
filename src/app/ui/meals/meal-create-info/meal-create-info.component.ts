@@ -68,7 +68,7 @@ export class MealCreateInfoComponent implements OnInit {
     this.meal.count = this.count;
     this.meal.menuTitle = this.menuTitle;
     this.meal.meal = this.time;
-    this.meal.foodId = this.meal.id;
+    this.meal.food = this.meal.title;
   }
 
   clearInput() {
@@ -80,7 +80,7 @@ export class MealCreateInfoComponent implements OnInit {
     this.meal = null;
     this.time = null;
     this.clearInput();
-    this.menuTitle = "";
+
   }
 
   private checkMeal(): boolean {

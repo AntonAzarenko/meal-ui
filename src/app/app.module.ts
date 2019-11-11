@@ -40,6 +40,7 @@ import {
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-info.component';
+import {httpInterceptorProviders} from "./services/auth-interceptor";
 
 @NgModule({
   declarations: [
@@ -106,7 +107,7 @@ import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-i
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
