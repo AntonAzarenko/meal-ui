@@ -37,7 +37,7 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-info.component';
 
@@ -103,7 +103,8 @@ import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-i
     MatTooltipModule,
     MatTreeModule,
     MatProgressSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

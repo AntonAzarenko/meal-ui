@@ -1,22 +1,28 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-card>
   <table border="1" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-      <th>День</th>
-      <th>Время</th>
-      <th>Еда</th>
-      <th width=200>Кол-во: {{description}}</th>
+      <th width=200>День</th>
+      <th width=200>Время</th>
+      <th width=200>Еда</th>
+      <th width=200>Кол-во: {{meal?.things}}</th>
       <th width="100">Добавить</th>
     </tr>
     <tr>
-      <td>{{day}}</td>
-      <td>{{time}}</td>
-      <th></th>
-      <th><input/></th>
-      <th>
-        <button style="text-align: center">
-          <mat-icon></mat-icon>
+      <th>{{day}}</th>
+      <th>{{time}}</th>
+      <th>{{meal?.title}}</th>
+      <th><input [(ngModel)]="count" (keyup)="onKey($event)" placeholder="{{count}}"/></th>
+      <th width="100">
+        <button class="buttonAdd" mat-button (click)="addMeal()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">done</mat-icon>
         </button>
       </th>
     </tr>
   </table>
+  <mat-form-field class="login-full-width">
+    <input matInput type="text" [(ngModel)]="menuTitle" placeholder="Введите Имя" value="Имя" name="menuTitle"
+           required="true"/>
+    <mat-error>Необходимо ввести название меню</mat-error>
+  </mat-form-field>
 </mat-card>

@@ -17,17 +17,66 @@
             <mat-option value="Second Lunch">Перекус</mat-option>
             <mat-option value="Dinner">Ужин</mat-option>
           </mat-select>
-
-          <mat-select placeholder="Выберите еду" class="mat-select" [(ngModel)]="food">
-              <mat-option *ngFor="let meal of foods" [value]="meal">{{food.title}}</mat-option>
+          <mat-select placeholder="Выберите еду" class="mat-select"  [(ngModel)]="food">
+              <mat-option *ngFor="let meal of foods" [value]="meal">{{meal.title}}</mat-option>
           </mat-select>
         </mat-card>
       </div>
       <div class="col-sm-6">
-        <app-meal-create-info  [day]="dayOfWeek" [time]="timeOfDay" [foodTitle]= food [descriptionFood]=foodDescription></app-meal-create-info>
+        <app-meal-create-info [day]="dayOfWeek" [time]="timeOfDay" [meal]="food" [foodDescription]="foodDescription"></app-meal-create-info>
         <hr>
+      </div>
+      <div class="col">
+        <mat-card>
+          <div>
+            <h5>Белки: {{food?.protein}}</h5>
+          </div>
+          <div>
+             <h5>Жиры: {{food?.fats}}</h5>
+          </div>
+           <div>
+              <h5>Углеводы: {{food?.carbohydrates}}</h5>
+          </div>
+        </mat-card>
       </div>
     </div>
   </div>
 </table>
+<div class="jumbotron">
+  <mat-card >
+    <table  class="table-striped" border="0.1" cellspacing="0" cellpadding="0" width="100%">
+      <tr>
+        <th width=200>День</th>
+        <th width=200>Время</th>
+        <th width=200>Еда</th>
+
+        <th width=100>Кол-во: {{foodTitle?.things}}</th>
+        <th width="100">Жиры
+          <tr>
+            <th>Норма </th>
+            <th>Кол-во</th>
+          </tr>
+        </th>
+        <th width="100">Углеводы</th>
+        <th width="100">Белки</th>
+        <th width="100">Каллории</th>
+        <th width="100">Ред-ть </th>
+      <th width="100">Удалить</th>
+      </tr>
+      <tr>
+        <th>{{dayOfWeek}}</th>
+        <th>{{timeOfDay}}</th>
+        <th>{{food?.title}}</th>
+        <th></th>
+        <th>
+          <tr>
+            <th></th>
+
+          </tr>
+      </th>
+      </tr>
+    </table>
+  </mat-card>
+
+</div>
 

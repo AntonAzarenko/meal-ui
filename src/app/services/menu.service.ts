@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Meal} from '../ui/common/domain/Meal';
 
 const httpOptions = {
@@ -12,13 +12,12 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class FoodService {
-
-  private URL="http://localhost:8080/api/food/"
+export class MenuService {
+  private URL="http://localhost:8080/api/menu/"
 
   constructor(private http: HttpClient) { }
 
-  public getAllFoods(){
-      return this.http.get(this.URL + "findallfood");
+  save(meal: Meal) {
+    return this.http.post<Meal>(this.URL + "save", meal, httpOptions)
   }
 }

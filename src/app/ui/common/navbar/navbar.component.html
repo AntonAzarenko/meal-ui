@@ -22,13 +22,16 @@
       </li>
     </ul>
     <div *ngIf="!isLoginIn">
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Email" aria-label="Search">
-        <input class="form-control mr-sm-2" type="search" placeholder="Password" aria-label="Search">
+      <form [formGroup]="form" class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
+        <input formControlName="username" class="form-control mr-sm-2" type="search" placeholder="Email"
+               aria-label="Search" >
+        <input formControlName="password"  class="form-control mr-sm-2" type="password"
+               placeholder="Password">
         <button style="padding-right: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
       </form>
     </div>
-    <button *ngIf="!isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">Signin
+    <button *ngIf="!isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
+      Signin
     </button>
     <button *ngIf="isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
       LogOut
