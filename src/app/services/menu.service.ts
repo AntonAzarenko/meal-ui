@@ -20,4 +20,8 @@ export class MenuService {
   save(meal: Meal) {
     return this.http.post<Meal>(this.URL + "save", meal, httpOptions)
   }
+
+  getMenu(name: string){
+    return this.http.get(this.URL + name)
+  }
 }

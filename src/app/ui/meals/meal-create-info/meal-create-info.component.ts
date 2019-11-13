@@ -50,11 +50,12 @@ export class MealCreateInfoComponent implements OnInit {
       this.appendMeal();
       console.log(this.meal);
       this.service.save(this.meal).subscribe((data: any) => {
-        // this.menu.push(data);
+        //this.menu.push(data);
         this.snackBar.open('Еда добавлена в меню', 'Ok', {
           duration: 2000,
         });
       });
+      this.createMenu.updateMenu(this.menuTitle);
       this.clearTable();
     } else {
       this.snackBar.open('Заполните все поля', 'ERROR', {
