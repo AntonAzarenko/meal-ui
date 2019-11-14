@@ -24,4 +24,8 @@ export class MenuService {
   getMenu(name: string){
     return this.http.get(this.URL + name)
   }
+
+  getAllMenus() {
+    return this.http.get(this.URL + "findallMenu");
+  }
 }

@@ -6,7 +6,7 @@ export class Meal {
   private _protein;
   private _fats;
   private _carbohydrates;
-  private _things;
+  private _description;
   private _menuTitle;
   private _day;
   private _count;
@@ -109,11 +109,11 @@ export class Meal {
     this._carbohydrates = value;
   }
 
-  get things() {
-    return this._things;
+  get description() {
+    return this._description;
   }
 
-  set things(value) {
-    this._things = value;
+  set description(value) {
+    this._description = value;
   }
 }

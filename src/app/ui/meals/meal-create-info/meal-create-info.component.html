@@ -5,14 +5,14 @@
       <th width=200>День</th>
       <th width=200>Время</th>
       <th width=200>Еда</th>
-      <th width=200>Кол-во: {{meal?.things}}</th>
+      <th width=200>Кол-во: {{meal?.description}}</th>
       <th width="100">Добавить</th>
     </tr>
     <tr>
       <th>{{day}}</th>
       <th>{{time}}</th>
       <th>{{meal?.title}}</th>
-      <th><input [(ngModel)]="count" (keyup)="onKey($event)" placeholder="{{count}}"/></th>
+      <th><input matInput type="search" [(ngModel)]="count" (keyup)="onKey($event)" placeholder="Введите кол-во"/></th>
       <th width="100">
         <button class="buttonAdd" mat-button (click)="addMeal()">
           <mat-icon aria-hidden="false" aria-label="Example home icon">done</mat-icon>
@@ -21,8 +21,12 @@
     </tr>
   </table>
   <mat-form-field class="login-full-width">
-    <input matInput type="text" [(ngModel)]="menuTitle" placeholder="Введите Имя" value="Имя" name="menuTitle"
+    <input matInput type="text" [(ngModel)]="menuTitle" placeholder="Введите Название Меню" value="Имя" name="menuTitle"
            required="true"/>
     <mat-error>Необходимо ввести название меню</mat-error>
   </mat-form-field>
+  <div *ngIf="!isLoginIn">
+      <input  class="form-control mr-sm-2" type="search"
+             placeholder="Поиск Еды">
+  </div>
 </mat-card>

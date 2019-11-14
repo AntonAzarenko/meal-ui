@@ -3,6 +3,9 @@
     <div class="row">
       <div class="col-sm-2">
         <mat-card class="mat-card table">
+            <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
+                <mat-option *ngFor="let menu of menus" (keyup)="update(menu)" [value]="menu">{{menu}}</mat-option>
+              </mat-select>
           <mat-select placeholder="Выберите день" class="mat-select" [(ngModel)]="dayOfWeek">
             <mat-option value="Monday">Понедельник</mat-option>
             <mat-option value="Tuesday">Вторник</mat-option>
@@ -14,7 +17,7 @@
           <mat-select placeholder="Выберите время" class="mat-select" [(ngModel)]="timeOfDay">
             <mat-option value="Breakfast">Завтрак</mat-option>
             <mat-option value="Lunch">Обед</mat-option>
-            <mat-option value="Second Lunch">Перекус</mat-option>
+            <mat-option value="Lunch">Перекус</mat-option>
             <mat-option value="Dinner">Ужин</mat-option>
           </mat-select>
           <mat-select placeholder="Выберите еду" class="mat-select" [(ngModel)]="food">
@@ -23,8 +26,7 @@
         </mat-card>
       </div>
       <div class="col-sm-6">
-        <app-meal-create-info [day]="dayOfWeek" [time]="timeOfDay" [meal]="food"
-                              [foodDescription]="foodDescription"></app-meal-create-info>
+        <app-meal-create-info [day]="dayOfWeek" [time]="timeOfDay" [meal]="food" [foodDescription]="foodDescription"></app-meal-create-info>
         <hr>
       </div>
       <div class="col">
@@ -44,7 +46,6 @@
   </div>
 </table>
 <div class="jumbotron">
-  <button (click)="update()">UPDATE</button>
     <div class="mat-elevation-z8 table-container">
       <table mat-table [dataSource]="datasource" multiTemplateDataRows class="mat-elevation-z8">
 

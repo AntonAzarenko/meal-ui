@@ -17,6 +17,8 @@ export class CreateMenuComponent implements OnInit {
   timeOfDay: string;
   food: object;
   foods: object[];
+  menus: object[];
+  menuTitle: string;
   foodDescription: string;
 
   displayedColumns: string[] = ['day', 'meal', 'food', 'count'];
@@ -25,6 +27,7 @@ export class CreateMenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getallMenus();
     this.getAllFoods();
   }
 
@@ -37,12 +40,14 @@ export class CreateMenuComponent implements OnInit {
     });
   }
 
-  update(){
-    this.updateMenu("123");
+  getallMenus(){
+    this.menuService.getAllMenus().subscribe((data:any[]) => {
+      this.menus = (data);
+    });
   }
 
-  updateMenu(name: string){
-    this.menuService.getMenu(name).subscribe((data:Meal[]) => {
+  updateMenu(event: any){
+    this.menuService.getMenu(this.menuTitle).subscribe((data:Meal[]) => {
       this.datasource = (data);
     });
   }
