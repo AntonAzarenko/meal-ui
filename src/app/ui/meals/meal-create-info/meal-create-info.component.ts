@@ -17,8 +17,9 @@ export class MealCreateInfoComponent implements OnInit {
   @Input() meal: Meal;
 
   count: number;
-  menuTitle: string;
+  menuTitle: string;x
   menu: object[];
+  isLoginIn: boolean = false;
 
   constructor(private createMenu: CreateMenuComponent, private service: MenuService, public snackBar: MatSnackBar) {
   }

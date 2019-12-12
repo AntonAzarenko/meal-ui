@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Meal} from '../ui/common/domain/Meal';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,7 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MenuService {
-  private URL="http://localhost:8080/api/menu/"
+  private URL= environment.URI + "/api/menu/"
 
   constructor(private http: HttpClient) { }
 

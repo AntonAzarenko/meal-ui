@@ -4,6 +4,7 @@ import {FormControl} from '@angular/forms';
 import { FoodService } from 'src/app/services/food.service';
 import { Meal } from '../../common/domain/Meal';
 import { MenuService } from 'src/app/services/menu.service';
+import { Food } from '../../common/domain/Food';
 
 @Component({
   selector: 'app-create-menu',
@@ -15,7 +16,7 @@ export class CreateMenuComponent implements OnInit {
   datasource: Meal[];
   dayOfWeek: string;
   timeOfDay: string;
-  food: object;
+  food: Food;
   foods: object[];
   menus: object[];
   menuTitle: string;

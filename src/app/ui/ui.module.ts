@@ -18,7 +18,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import { MealCreateInfoComponent } from './meals/meal-create-info/meal-create-info.component';
 
 @NgModule({
-  declarations: [LayoutComponent, NavbarComponent, CreateMenuComponent, MealCreateInfoComponent],
+  declarations: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
   imports: [
@@ -66,10 +66,7 @@ import { MealCreateInfoComponent } from './meals/meal-create-info/meal-create-in
     BrowserAnimationsModule
   ],
   exports: [
-    LayoutComponent,
-    NavbarComponent,
-    CreateMenuComponent,
-    MealCreateInfoComponent
+   
   ]
 })
 export class UiModule { }
