@@ -12,6 +12,7 @@ export class BookerComponent implements OnInit {
   public category: string;
   public calculator: string;
   check: string;
+  date: string;
   comment: string;
   booker: Booker;
   price: string;
