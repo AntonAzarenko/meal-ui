@@ -82,11 +82,10 @@ export class MealCreateInfoComponent implements OnInit {
     this.meal = null;
     this.time = null;
     this.clearInput();
-
   }
 
   private checkMeal(): boolean {
-    if (this.day != null && this.menuTitle != null && this.time != null) {
+    if (this.day != null && this.menuTitle != null && this.time != null && this.meal != null) {
       return true;
     }
     return false;

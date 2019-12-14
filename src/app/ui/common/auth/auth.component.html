@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <mat-card>
+    <div *ngIf="!isLoginIn">
+      <form [formGroup]="form" class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
+        <input formControlName="username" class="form-control mr-sm-2" type="search" placeholder="Email"
+               aria-label="Search">
+        <input formControlName="password" class="form-control mr-sm-2" type="password"
+               placeholder="Password">
+        <button style="padding-right: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
+      </form>
+    </div>
+  </mat-card>
+</div>
