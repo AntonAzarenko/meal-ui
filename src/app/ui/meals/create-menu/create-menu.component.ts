@@ -32,9 +32,6 @@ export class CreateMenuComponent implements OnInit {
     this.getAllFoods();
   }
 
-  back() {
-  }
-
   getAllFoods(){
     this.foodService.getAllFoods().subscribe((data:any[]) => {
       this.foods = (data);

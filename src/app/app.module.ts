@@ -41,6 +41,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-info.component';
 import {httpInterceptorProviders} from "./services/auth-interceptor";
+import {BookerComponent} from './ui/booker/booker.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {httpInterceptorProviders} from "./services/auth-interceptor";
     LayoutComponent,
     NavbarComponent,
     CreateMenuComponent,
-    MealCreateInfoComponent
+    MealCreateInfoComponent,
+    BookerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 

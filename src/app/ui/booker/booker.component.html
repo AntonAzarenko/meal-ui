@@ -1,0 +1,73 @@
+<div class="jumbotron">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <mat-card>
+      <mat-select placeholder="Категория" class="mat-select" [(ngModel)]="category">
+        <mat-option value="FOOD">Еда</mat-option>
+        <mat-option value="GAS">Бензин</mat-option>
+        <mat-option value="DRINK">Алкоголь</mat-option>
+        <mat-option value="CLOTHES">Одежда</mat-option>
+      </mat-select>
+    </mat-card>
+    <div>
+      <div>
+        <mat-form-field class="login-full-width">
+          <input matInput type="text" [(ngModel)]="check" placeholder="Сумма чека"
+                 name="menuTitle"
+                 required="true"/>
+          <mat-error>Сумма</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <label>{{calculator}}</label>
+      </div>
+      <!-- <mat-card>
+         <div>
+           <button mat-button (click)="one()">1</button>
+           <button mat-button (click)="two()">2</button>
+           <button mat-button (click)="three()">3</button>
+           <button mat-button (click)="four()">+</button>
+         </div>
+         <div>
+           <button mat-button>4</button>
+           <button mat-button>5</button>
+           <button mat-button>6</button>
+           <button mat-button>-</button>
+         </div>
+         <div>
+           <button mat-button>7</button>
+           <button mat-button>8</button>
+           <button mat-button>9</button>
+           <button mat-button>/</button>
+         </div>
+         <div>
+           <button mat-button>0</button>
+           <button mat-button>.</button>
+           <button mat-button>=</button>
+           <button mat-button>*</button>
+         </div>
+       </mat-card>-->
+      <div>
+        <mat-form-field class="login-full-width">
+          <input matInput type="text" [(ngModel)]="comment" placeholder="Коментарий" value="comment"
+                 name="menuTitle"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button (click)="addNewRecord()">Добавить</button>
+      </div>
+    </div>
+    <div>
+      <label>{{category}} : {{price}}</label>
+    </div>
+    <div>
+      <button mat-button (click)="showBalance()">Посмотреть</button>
+    </div>
+  </div>
+</div>
