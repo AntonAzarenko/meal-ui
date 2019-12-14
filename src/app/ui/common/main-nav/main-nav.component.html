@@ -9,24 +9,10 @@
     <mat-nav-list>
       <a class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="">Профиль</a>
-      <a class="nav-link" href="" routerLink="/crmenu">Создать меню</a>
+      <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
       <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>
-      <div *ngIf="!isLoginIn">
-        <form [formGroup]="form" class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
-          <input formControlName="username" class="form-control mr-sm-2" type="search" placeholder="Email"
-                 aria-label="Search">
-          <input formControlName="password" class="form-control mr-sm-2" type="password"
-                 placeholder="Password">
-          <button style="padding-right: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
-        </form>
-      </div>
-      <button *ngIf="!isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-        Signin
-      </button>
-      <button *ngIf="isLoginIn" (click)="logout()" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0"
-              type="submit">
-        LogOut
-      </button>
+      <a  *ngIf="!isLoginIn"class="nav-link" href="" routerLink="/login">Войти</a>
+      <a  *ngIf="isLoginIn"class="nav-link" href="" routerLink="/login">Выйти</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -40,23 +26,11 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Meal</span>
-      <a  class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
-      <a  class="nav-link" routerLink="">Профиль</a>
-      <a  class="nav-link" routerLink="/crmenu">Создать меню</a>
-      <a  class="nav-link" [href]="" routerLink="/booker" routerLinkActive="active-link">Контроль денег</a>
+      <a class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="">Профиль</a>
+      <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
+      <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>
       <span class="spacer"></span>
-      <div *ngIf="!isLoginIn">
-        <form [formGroup]="form" class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit()">
-          <input formControlName="username" class="form-control mr-sm-2" type="search" placeholder="Email"
-                 aria-label="Search">
-          <input formControlName="password" class="form-control mr-sm-2" type="password"
-                 placeholder="Password">
-          <button style="padding-right: 10px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
-        </form>
-      </div>
-      <button *ngIf="!isLoginIn" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0" type="submit">
-        Signin
-      </button>
       <button *ngIf="isLoginIn" (click)="logout()" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0"
               type="submit">
         LogOut

@@ -44,10 +44,11 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {MainNavComponent} from './common/main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {AppRoutingModule} from '../app-routing.module';
+import { AuthComponent } from './common/auth/auth.component';
 
 @NgModule({
 
-  declarations: [MainNavComponent],
+  declarations: [MainNavComponent, AuthComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
