@@ -42,6 +42,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-info.component';
 import {httpInterceptorProviders} from "./services/auth-interceptor";
 import {BookerComponent} from './ui/booker/booker.component';
+import {UiModule} from './ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import {BookerComponent} from './ui/booker/booker.component';
     MatTreeModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UiModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -1,8 +1,5 @@
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LayoutComponent} from './common/layout/layout.component';
-import {NavbarComponent} from './common/navbar/navbar.component';
-import {CreateMenuComponent} from './meals/create-menu/create-menu.component';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -40,16 +37,17 @@ import {
   MatTooltipModule,
   MatTreeModule
 } from '@angular/material';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-import {MealCreateInfoComponent} from './meals/meal-create-info/meal-create-info.component';
-import {BookerComponent} from './booker/booker.component';
+import {MainNavComponent} from './common/main-nav/main-nav.component';
+import {LayoutModule} from '@angular/cdk/layout';
+import {AppRoutingModule} from '../app-routing.module';
 
 @NgModule({
 
-  declarations: [],
+  declarations: [MainNavComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
@@ -95,9 +93,14 @@ import {BookerComponent} from './booker/booker.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  exports: []
+  exports: [
+    MainNavComponent
+  ]
 })
 export class UiModule {
 }

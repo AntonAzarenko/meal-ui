@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .sidenav {
+    display: none;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-link {
+  padding-left: 50px;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/*mat-toolbar {*/
+/*  width: 100%;*/
+/*  color: rgba(181, 179, 183, 0.72);*/
+/*  text-decoration: none;*/
+/*}*/
+.hidden {
+  display: none;
+}
