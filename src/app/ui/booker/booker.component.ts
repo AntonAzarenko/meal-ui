@@ -51,24 +51,8 @@ export class BookerComponent implements OnInit {
             fill: false,
             borderColor: '#4bc0c0'
           },
-          /*{
-            label: 'Second Dataset',
-            data: [28, 48, 40, 19, 86, 27, 90], backgroundColor: [
-              "#FF6384",
-              "#4BC0C0",
-              "#FFCE56",
-              "#E7E9ED",
-              "#36A2EB"
-            ],
-            fill: false,
-            borderColor: '#565656'
-          }*/
         ]
-      },
-      options: {
-      responsive: false,
-      maintainAspectRatio: false,
-    }
+      }
     });
   }
 
