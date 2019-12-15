@@ -43,6 +43,7 @@ import {MealCreateInfoComponent} from './ui/meals/meal-create-info/meal-create-i
 import {httpInterceptorProviders} from "./services/auth-interceptor";
 import {BookerComponent} from './ui/booker/booker.component';
 import {UiModule} from './ui/ui.module';
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import {UiModule} from './ui/ui.module';
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    UiModule
+    UiModule,
+    ChartModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

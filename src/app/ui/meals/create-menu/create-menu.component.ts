@@ -44,6 +44,10 @@ export class CreateMenuComponent implements OnInit {
     });
   }
 
+  update(menu){
+
+  }
+
   updateMenu(event: any){
     this.menuService.getMenu(this.menuTitle).subscribe((data:Meal[]) => {
       this.datasource = (data);

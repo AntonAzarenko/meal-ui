@@ -45,6 +45,8 @@ import {MainNavComponent} from './common/main-nav/main-nav.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {AppRoutingModule} from '../app-routing.module';
 import { AuthComponent } from './common/auth/auth.component';
+import {ChartModule} from 'primeng/chart';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
 
@@ -53,6 +55,8 @@ import { AuthComponent } from './common/auth/auth.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
   imports: [
+    BrowserModule,
+    ChartModule,
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -94,13 +98,13 @@ import { AuthComponent } from './common/auth/auth.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    BrowserAnimationsModule,
     LayoutModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
   exports: [
-    MainNavComponent
+    MainNavComponent,
+    ChartModule
   ]
 })
 export class UiModule {

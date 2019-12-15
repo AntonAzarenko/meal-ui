@@ -8,7 +8,7 @@ import {AuthComponent} from './ui/common/auth/auth.component';
 const routes: Routes = [
   {path: 'menu/edit', component: CreateMenuComponent},
   {path: 'booker', component: BookerComponent},
-  {path: 'login', component: AuthComponent}
+  {path: 'login', component: AuthComponent},
 ];
 
 @NgModule({

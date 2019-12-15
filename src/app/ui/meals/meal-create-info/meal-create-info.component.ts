@@ -4,6 +4,7 @@ import {CreateMenuComponent} from '../create-menu/create-menu.component';
 import {FoodService} from '../../../services/food.service';
 import {MatSnackBar} from '@angular/material';
 import {MenuService} from '../../../services/menu.service';
+import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-meal-create-info',
@@ -25,7 +26,7 @@ export class MealCreateInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.createMenu.updateMenu(any())
   }
 
   onKey(event: any) {
@@ -78,9 +79,7 @@ export class MealCreateInfoComponent implements OnInit {
   }
 
   private clearTable() {
-    this.day = null;
     this.meal = null;
-    this.time = null;
     this.clearInput();
   }
 
