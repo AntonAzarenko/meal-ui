@@ -1,11 +1,12 @@
 <div class="jumbotron">
   <div>
-    <div>
-      <mat-form-field>
-        <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [formControl]="date">
-        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-        <mat-datepicker #dp></mat-datepicker>
-      </mat-form-field>
+    <canvas class="diagram" id="polarArea" height="500" width="500"></canvas>
+    <div class="row absolute-Center">
+      <div class="absolute-Center">
+        <button><</button>
+        <button class="label" (click)="dataInit()">Декабрь</button>
+        <button>></button>
+      </div>
     </div>
     <mat-card>
       <mat-select placeholder="Категория" class="mat-select" [(ngModel)]="category">
@@ -24,37 +25,37 @@
           <mat-error>Сумма</mat-error>
         </mat-form-field>
       </div>
+      <!-- <div>
+         <label>{{calculator}}</label>
+       </div>
+        <mat-card>
+          <div>
+            <button mat-button (click)="one()">1</button>
+            <button mat-button (click)="two()">2</button>
+            <button mat-button (click)="three()">3</button>
+            <button mat-button (click)="four()">+</button>
+          </div>
+          <div>
+            <button mat-button>4</button>
+            <button mat-button>5</button>
+            <button mat-button>6</button>
+            <button mat-button>-</button>
+          </div>
+          <div>
+            <button mat-button>7</button>
+            <button mat-button>8</button>
+            <button mat-button>9</button>
+            <button mat-button>/</button>
+          </div>
+          <div>
+            <button mat-button>0</button>
+            <button mat-button>.</button>
+            <button mat-button>=</button>
+            <button mat-button>*</button>
+          </div>
+       </mat-card>-->
       <div>
-        <label>{{calculator}}</label>
-      </div>
-       <mat-card>
-         <div>
-           <button mat-button (click)="one()">1</button>
-           <button mat-button (click)="two()">2</button>
-           <button mat-button (click)="three()">3</button>
-           <button mat-button (click)="four()">+</button>
-         </div>
-         <div>
-           <button mat-button>4</button>
-           <button mat-button>5</button>
-           <button mat-button>6</button>
-           <button mat-button>-</button>
-         </div>
-         <div>
-           <button mat-button>7</button>
-           <button mat-button>8</button>
-           <button mat-button>9</button>
-           <button mat-button>/</button>
-         </div>
-         <div>
-           <button mat-button>0</button>
-           <button mat-button>.</button>
-           <button mat-button>=</button>
-           <button mat-button>*</button>
-         </div>
-       </mat-card>
-      <div>
-        <mat-form-field class="login-full-width">
+        <mat-form-field>
           <input matInput type="text" [(ngModel)]="comment" placeholder="Коментарий"
                  name="menuTitle"/>
         </mat-form-field>
@@ -63,7 +64,7 @@
         <button mat-button (click)="addNewRecord()">Добавить</button>
       </div>
     </div>
-    <div>
+    <div *ngIf="show">
       <label>{{category}} : {{price}}</label>
     </div>
     <div>

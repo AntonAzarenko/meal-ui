@@ -23,11 +23,12 @@ export class AuthComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  data: any;
   private loginInfo: AuthLoginInfo;
 
   constructor(private authService: AuthService,
               private tokenStorage: TokenStorageService,
-              ) {
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -52,7 +53,7 @@ export class AuthComponent implements OnInit {
         this.isLoggedIn = true;
         this.isLoginIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        //this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/menu/edit');
         this.reloadPage();
       },
       error => {

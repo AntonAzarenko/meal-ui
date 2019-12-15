@@ -21,10 +21,13 @@ export class BookerService {
   constructor(private http: HttpClient) { }
 
   save(booker: Booker) {
+    console.log(booker) //TODO remove
     return this.http.post<Meal>(this.bookerUrl, booker, httpOptions)
   }
 
   getPrice(category: string){
     return this.http.get(this.bookerUrl + category);
   }
+
+  getReport = () => this.http.get(this.bookerUrl + "report");
 }
