@@ -11,6 +11,7 @@ export class AddRecordComponent implements OnInit {
   @Input() type: string;
   check: string;
   booker: Booker;
+  comment: string;
   constructor(private bookerService: BookerService) { }
 
   ngOnInit() {

@@ -44,6 +44,7 @@ import {httpInterceptorProviders} from "./services/auth-interceptor";
 import {BookerComponent} from './ui/booker/booker.component';
 import {UiModule} from './ui/ui.module';
 import {ChartModule} from 'primeng/chart';
+import {ProgressSpinnerModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import {ChartModule} from 'primeng/chart';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     UiModule,
-    ChartModule
+    ChartModule,
+    ProgressSpinnerModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

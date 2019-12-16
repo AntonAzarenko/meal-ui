@@ -48,6 +48,7 @@ import { AuthComponent } from './common/auth/auth.component';
 import {ChartModule} from 'primeng/chart';
 import {BrowserModule} from '@angular/platform-browser';
 import { AddRecordComponent } from './booker/add-record/add-record.component';
+import {ProgressSpinnerModule} from 'primeng/primeng';
 
 @NgModule({
 
@@ -101,7 +102,8 @@ import { AddRecordComponent } from './booker/add-record/add-record.component';
     MatTreeModule,
     LayoutModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProgressSpinnerModule
   ],
   exports: [
     MainNavComponent,

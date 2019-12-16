@@ -43,30 +43,7 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
   }
 
-  onSubmit() {
-    console.log(this.form.value.username);
-    this.loginInfo = new AuthLoginInfo(this.form.value.username, this.form.value.password);
 
-    this.authService.attemptAuth(this.loginInfo).subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
-
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.isLoginIn = true;
-        this.roles = this.tokenStorage.getAuthorities();
-        //this.router.navigateByUrl('/home');
-        this.reloadPage();
-      },
-      error => {
-        console.log(error);
-        this.errorMessage = error.error.message;
-        this.isLoginFailed = true;
-      }
-    );
-  }
 
   logout(){
     this.tokenStorage.signOut();

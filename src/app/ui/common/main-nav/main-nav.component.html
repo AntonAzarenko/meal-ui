@@ -12,7 +12,7 @@
       <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
       <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>
       <a  *ngIf="!isLoginIn"class="nav-link" href="" routerLink="/login">Войти</a>
-      <a  *ngIf="isLoginIn"class="nav-link" href="" routerLink="/login">Выйти</a>
+      <a  *ngIf="isLoginIn"class="nav-link" (click)="logout()">Выйти</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

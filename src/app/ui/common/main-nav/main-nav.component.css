@@ -4,7 +4,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 180px;
 }
 
 .sidenav .mat-toolbar {
@@ -17,7 +17,7 @@
   z-index: 1;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 1000px) {
   .sidenav {
     display: none;
   }

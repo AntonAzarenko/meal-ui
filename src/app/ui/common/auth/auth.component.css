@@ -5,3 +5,8 @@ mat-card {
 .jumbotron {
   height: 100%;
 }
+
+.absolute-Center {
+  width: 100%;
+  text-align: center;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AuthLoginInfo} from '../../../services/login-info';
 import {AuthService} from '../../../services/auth.service';
@@ -13,6 +13,7 @@ import {Router} from '@angular/router';
 export class AuthComponent implements OnInit {
 
   isLoginIn = false;
+  isShowProgressBar = false;
 
   form = new FormGroup({
     username: new FormControl(''),
@@ -40,7 +41,7 @@ export class AuthComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value.username);
+    this.isShowProgressBar = true;
     this.loginInfo = new AuthLoginInfo(this.form.value.username, this.form.value.password);
 
     this.authService.attemptAuth(this.loginInfo).subscribe(
@@ -53,7 +54,8 @@ export class AuthComponent implements OnInit {
         this.isLoggedIn = true;
         this.isLoginIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.router.navigateByUrl('/menu/edit');
+        this.isShowProgressBar = false;
+        //this.router.navigateByUrl('/menu/edit');
         this.reloadPage();
       },
       error => {
