@@ -3,6 +3,33 @@ export class Price {
   private _gas;
   private _alcohol;
   private _clothes;
+  private _pets;
+  private _loans;
+  private _home;
+
+  get home() {
+    return this._home;
+  }
+
+  set home(value) {
+    this._home = value;
+  }
+
+  get pets() {
+    return this._pets;
+  }
+
+  set pets(value) {
+    this._pets = value;
+  }
+
+  get loans() {
+    return this._loans;
+  }
+
+  set loans(value) {
+    this._loans = value;
+  }
 
   get food() {
     return this._food;

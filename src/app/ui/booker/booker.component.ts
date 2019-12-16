@@ -11,14 +11,13 @@ import {Price} from '../common/domain/Price';
 })
 export class BookerComponent implements OnInit {
 
+  isAdding: boolean = false;
+  budget: string = "минус -";
   public category: string;
-  public calculator: string;
-  check: string;
   comment: string;
   booker: Booker;
   price: Price = new Price();
-  show: boolean = false;
-  PolarAreaChart: any;
+  PieChart: any;
 
   constructor(private bookerService: BookerService) {
   }
@@ -35,18 +34,20 @@ export class BookerComponent implements OnInit {
   }
 
   dataInit() {
-    this.PolarAreaChart = new Chart('polarArea', {
-      type: 'polarArea',
+    this.PieChart = new Chart('pie', {
+      type: 'doughnut',
       data: {
-        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь'],
+        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь', 'Питомцы', "Кредиты", "Дом"],
         datasets: [
           {
             label: 'First Dataset',
-            data: [this.price.food, this.price.gas, this.price.clothes,  this.price.alcohol], backgroundColor: [
+            data: [this.price.food, this.price.gas, this.price.clothes,  this.price.alcohol, this.price.pets, this.price.loans, this.price.home], backgroundColor: [
               '#FF6384',
-              '#4BC0C0',
-              '#FFCE56',
+              '#3ec0a5',
+              '#50ff8c',
               '#6fabed',
+              '#e9ed11',
+              '#ed2700',
             ],
             fill: false,
             borderColor: '#4bc0c0'
@@ -56,18 +57,8 @@ export class BookerComponent implements OnInit {
     });
   }
 
-  addNewRecord() {
-    this.show = false;
-    this.booker = new Booker(this.check, this.category);
-    this.bookerService.save(this.booker).subscribe();
-    window.location.reload();
-  }
-
-  showBalance() {
-    this.show = true;
-    this.bookerService.getPrice(this.category).subscribe((data: any) => {
-      this.price = data;
-      console.log(this.price);
-    });
+  moveToAddRecord(value: string){
+    this.category = value;
+    this.isAdding = true;
   }
 }

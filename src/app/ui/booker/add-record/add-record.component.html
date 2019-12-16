@@ -1,0 +1,20 @@
+<p>
+  add-record works!{{type}}
+</p>
+<div>
+  <mat-form-field class="login-full-width">
+    <input matInput type="text" [(ngModel)]="check" placeholder="Сумма чека"
+           name="menuTitle"
+           required="true"/>
+    <mat-error>Сумма</mat-error>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="comment" placeholder="Коментарий"
+           name="menuTitle"/>
+  </mat-form-field>
+</div>
+<div>
+  <button mat-button (click)="addNewRecord()">Добавить</button>
+</div>

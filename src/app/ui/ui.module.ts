@@ -47,10 +47,12 @@ import {AppRoutingModule} from '../app-routing.module';
 import { AuthComponent } from './common/auth/auth.component';
 import {ChartModule} from 'primeng/chart';
 import {BrowserModule} from '@angular/platform-browser';
+import { AddRecordComponent } from './booker/add-record/add-record.component';
+import {ProgressSpinnerModule} from 'primeng/primeng';
 
 @NgModule({
 
-  declarations: [MainNavComponent, AuthComponent],
+  declarations: [MainNavComponent, AuthComponent, AddRecordComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
@@ -100,11 +102,13 @@ import {BrowserModule} from '@angular/platform-browser';
     MatTreeModule,
     LayoutModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProgressSpinnerModule
   ],
   exports: [
     MainNavComponent,
-    ChartModule
+    ChartModule,
+    AddRecordComponent
   ]
 })
 export class UiModule {
