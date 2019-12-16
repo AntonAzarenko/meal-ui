@@ -1,6 +1,5 @@
 <div class="jumbotron">
-  <div>
-    <canvas class="diagram" id="polarArea" height="500" width="500"></canvas>
+  <div *ngIf="!isAdding">
     <div class="row absolute-Center">
       <div class="absolute-Center">
         <button><</button>
@@ -8,23 +7,34 @@
         <button>></button>
       </div>
     </div>
-    <mat-card>
-      <mat-select placeholder="Категория" class="mat-select" [(ngModel)]="category">
-        <mat-option value="FOOD">Еда</mat-option>
-        <mat-option value="GAS">Бензин</mat-option>
-        <mat-option value="DRINK">Алкоголь</mat-option>
-        <mat-option value="CLOTHES">Одежда</mat-option>
-      </mat-select>
-    </mat-card>
-    <div>
-      <div>
-        <mat-form-field class="login-full-width">
-          <input matInput type="text" [(ngModel)]="check" placeholder="Сумма чека"
-                 name="menuTitle"
-                 required="true"/>
-          <mat-error>Сумма</mat-error>
-        </mat-form-field>
+    <canvas class="diagram" id="pie" height="500" width="500">asdsa</canvas>
+    <div class="row absolute-Center">
+      <div class="absolute-Center">
+        <button mat-button (click)="moveToAddRecord('HOME')">
+          <mat-icon style="color: #f186ff">home</mat-icon>
+        </button>
+        <button mat-button (click)="moveToAddRecord('FOOD')">
+          <mat-icon style="color: #FF6384">shopping_cart</mat-icon>
+        </button>
+        <button mat-button (click)="moveToAddRecord('GAS')">
+          <mat-icon style="color: #3ec0a5">local_gas_station</mat-icon>
+        </button>
+        <button mat-button (click)="moveToAddRecord('PETS')">
+          <mat-icon style="color: #e9ed11">pets</mat-icon>
+        </button>
+        <button mat-button (click)="moveToAddRecord('DRINK')">
+          <mat-icon style="color: #6fabed">local_bar</mat-icon>
+        </button>
+        <button mat-button (click)="moveToAddRecord('CREDIT')">
+          <mat-icon style="color: #ed2700">local_atm</mat-icon>
+        </button>
       </div>
+    </div>
+    <div>
+      <label class="profit absolute-Center">{{budget}}</label>
+    </div>
+
+
       <!-- <div>
          <label>{{calculator}}</label>
        </div>
@@ -54,21 +64,8 @@
             <button mat-button>*</button>
           </div>
        </mat-card>-->
-      <div>
-        <mat-form-field>
-          <input matInput type="text" [(ngModel)]="comment" placeholder="Коментарий"
-                 name="menuTitle"/>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button (click)="addNewRecord()">Добавить</button>
-      </div>
-    </div>
-    <div *ngIf="show">
-      <label>{{category}} : {{price}}</label>
-    </div>
-    <div>
-      <button mat-button (click)="showBalance()">Посмотреть</button>
-    </div>
+  </div>
+  <div *ngIf="isAdding">
+    <app-add-record [type]="category"></app-add-record>
   </div>
 </div>
