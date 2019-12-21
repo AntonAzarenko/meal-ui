@@ -4,8 +4,16 @@ export class Price {
   private _alcohol;
   private _clothes;
   private _pets;
-  private _loans;
+  private _credit;
   private _home;
+
+  get credits() {
+    return this._credit;
+  }
+
+  set credit(value) {
+    this._credit = value;
+  }
 
   get home() {
     return this._home;
@@ -21,14 +29,6 @@ export class Price {
 
   set pets(value) {
     this._pets = value;
-  }
-
-  get loans() {
-    return this._loans;
-  }
-
-  set loans(value) {
-    this._loans = value;
   }
 
   get food() {
