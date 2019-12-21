@@ -12,18 +12,31 @@ import {Price} from '../common/domain/Price';
 export class BookerComponent implements OnInit {
 
   isAdding: boolean = false;
-  budget: string = "минус -";
+  budget: string = 'минус -';
   public category: string;
   comment: string;
   booker: Booker;
   price: Price = new Price();
   PieChart: any;
+  clickedMonth: number;
+  currentMonth: number;
+  month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   constructor(private bookerService: BookerService) {
   }
 
   ngOnInit() {
     this.getReport();
+  }
+
+  left() {
+    if (this.clickedMonth > 2) {
+      this.clickedMonth = this.clickedMonth - 1;
+    }
+  }
+
+  right() {
+
   }
 
   getReport() {
@@ -37,11 +50,12 @@ export class BookerComponent implements OnInit {
     this.PieChart = new Chart('pie', {
       type: 'doughnut',
       data: {
-        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь', 'Питомцы', "Кредиты", "Дом"],
+        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь', 'Питомцы', 'Кредиты', 'Дом'],
         datasets: [
           {
             label: 'First Dataset',
-            data: [this.price.food, this.price.gas, this.price.clothes,  this.price.alcohol, this.price.pets, this.price.loans, this.price.home], backgroundColor: [
+            data: [this.price.food, this.price.gas, this.price.clothes, this.price.alcohol, this.price.pets, this.price.credit, this.price.home],
+            backgroundColor: [
               '#FF6384',
               '#3ec0a5',
               '#50ff8c',
@@ -57,7 +71,7 @@ export class BookerComponent implements OnInit {
     });
   }
 
-  moveToAddRecord(value: string){
+  moveToAddRecord(value: string) {
     this.category = value;
     this.isAdding = true;
   }
