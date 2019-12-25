@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Meal} from '../ui/common/domain/Meal';
@@ -18,16 +18,23 @@ export class BookerService {
 
   private bookerUrl = environment.URI + '/api/booker/';
 
-  constructor(private http: HttpClient) { }
-
-  save(booker: Booker) {
-    console.log(booker) //TODO remove
-    return this.http.post<Meal>(this.bookerUrl, booker, httpOptions)
+  constructor(private http: HttpClient) {
   }
 
-  getPrice(category: string){
+  save(booker: Booker) {
+    console.log(booker); //TODO remove
+    return this.http.post<Meal>(this.bookerUrl, booker, httpOptions);
+  }
+
+  getPrice(category: string) {
     return this.http.get(this.bookerUrl + category);
   }
 
-  getReport = () => this.http.get(this.bookerUrl + "report");
+  getReport(year: number, month: number) {
+    return this.http.get(this.bookerUrl + 'report/' + year + '/' + month);
+  }
+
+  getCurrentReport(){
+    return this.http.get(this.bookerUrl + 'report/');
+  }
 }

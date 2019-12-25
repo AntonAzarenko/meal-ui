@@ -18,7 +18,7 @@ export class MealCreateInfoComponent implements OnInit {
   @Input() meal: Meal;
 
   count: number;
-  menuTitle: string;x
+  menuTitle: string;
   menu: object[];
   isLoginIn: boolean = false;
 

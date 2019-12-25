@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AuthLoginInfo} from '../../../services/login-info';
 import {AuthService} from '../../../services/auth.service';
@@ -28,13 +28,18 @@ export class MainNavComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver,
               private authService: AuthService,
-              private tokenStorage: TokenStorageService) {}
+              private tokenStorage: TokenStorageService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.isLoginIn = true;
       this.roles = this.tokenStorage.getAuthorities();
+    } else {
+      this.isLoggedIn = false;
+      this.isLoginIn = false;
     }
   }
 
@@ -42,9 +47,9 @@ export class MainNavComponent implements OnInit {
     window.location.reload();
   }
 
-  logout(){
+  logout() {
     this.tokenStorage.signOut();
     this.isLoginIn = false;
-    this.reloadPage();
+    this.router.navigateByUrl('/login');
   }
 }
