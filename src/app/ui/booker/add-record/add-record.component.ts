@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Booker} from '../../common/domain/Booker';
 import {BookerService} from '../../../services/booker.service';
+import {Router} from '@angular/router';
+import {BookerComponent} from '../booker.component';
 
 @Component({
   selector: 'app-add-record',
@@ -12,7 +14,9 @@ export class AddRecordComponent implements OnInit {
   check: string;
   booker: Booker;
   comment: string;
-  constructor(private bookerService: BookerService) { }
+
+  constructor(private bookerService: BookerService, private bookerComponent : BookerComponent) {
+  }
 
   ngOnInit() {
   }
@@ -21,5 +25,9 @@ export class AddRecordComponent implements OnInit {
     this.booker = new Booker(this.check, this.type);
     this.bookerService.save(this.booker).subscribe();
     window.location.reload();
+  }
+
+  back() {
+    this.bookerComponent.back();
   }
 }

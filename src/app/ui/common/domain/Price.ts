@@ -6,6 +6,42 @@ export class Price {
   private _pets;
   private _credit;
   private _home;
+  private _profit;
+  private _month;
+  private _year;
+  private _currentDateTime;
+
+  get currentDateTime() {
+    return this._currentDateTime;
+  }
+
+  set currentDateTime(value) {
+    this._currentDateTime = value;
+  }
+
+  get year() {
+    return this._year;
+  }
+
+  set year(value) {
+    this._year = value;
+  }
+
+  get month() {
+    return this._month;
+  }
+
+  set month(value) {
+    this._month = value;
+  }
+
+  get profit() {
+    return this._profit;
+  }
+
+  set profit(value) {
+    this._profit = value;
+  }
 
   get credits() {
     return this._credit;
