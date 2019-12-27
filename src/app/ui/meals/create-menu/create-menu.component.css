@@ -4,15 +4,21 @@
 }
 
 .mat-card {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-table {
-  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .table-container {
   height: 400px;
   overflow: auto;
+}
+
+.absolute-Center {
+  width: 100%;
+  text-align: center;
+}
+
+.comp {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
