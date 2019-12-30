@@ -5,7 +5,6 @@ import {AuthService} from '../../../services/auth.service';
 import {TokenStorageService} from '../../../services/token-storage.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
-import {MainNavComponent} from '../main-nav/main-nav.component';
 
 @Component({
   selector: 'app-auth',
@@ -32,8 +31,7 @@ export class AuthComponent implements OnInit {
   constructor(private authService: AuthService,
               private tokenStorage: TokenStorageService,
               private router: Router,
-              public snackBar: MatSnackBar,
-              private navbar: MainNavComponent) {
+              public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -57,20 +55,26 @@ export class AuthComponent implements OnInit {
         this.roles = this.tokenStorage.getAuthorities();
         this.isShowProgressBar = false;
         this.isLoggedIn = true;
-        this.isLoginIn = true;
 
-      this.reloadPage()
+        this.reloadPage();
       },
       error => {
         console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
+        this.snackBar.open(error.error.message, 'ERROR', {
+          duration: 5000,
+        });
+        this.isLoggedIn = false;
+        this.isLoginIn = false;
+        this.isShowProgressBar = false;
       }
     );
-    this.router.navigateByUrl('/booker');
+    //this.router.navigateByUrl('/booker');
   }
 
   reloadPage() {
     window.location.reload();
+    this.isLoginIn = true;
   }
 }

@@ -49,10 +49,11 @@ import {ChartModule} from 'primeng/chart';
 import {BrowserModule} from '@angular/platform-browser';
 import { AddRecordComponent } from './booker/add-record/add-record.component';
 import {ProgressSpinnerModule} from 'primeng/primeng';
+import { RegistrationComponent } from './common/auth/registration/registration.component';
 
 @NgModule({
 
-  declarations: [MainNavComponent, AuthComponent, AddRecordComponent],
+  declarations: [MainNavComponent, AuthComponent, AddRecordComponent, RegistrationComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 

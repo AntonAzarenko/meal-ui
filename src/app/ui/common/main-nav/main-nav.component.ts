@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {FormControl, FormGroup} from '@angular/forms';
 import {AuthLoginInfo} from '../../../services/login-info';
 import {AuthService} from '../../../services/auth.service';
 import {TokenStorageService} from '../../../services/token-storage.service';
@@ -51,5 +50,6 @@ export class MainNavComponent implements OnInit {
     this.tokenStorage.signOut();
     this.isLoginIn = false;
     this.router.navigateByUrl('/login');
+    this.reloadPage();
   }
 }
