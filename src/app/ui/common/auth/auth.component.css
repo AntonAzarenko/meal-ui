@@ -10,3 +10,7 @@ mat-card {
   width: 100%;
   text-align: center;
 }
+
+.btn{
+  padding-top: 5px;
+}

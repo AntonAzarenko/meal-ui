@@ -22,12 +22,13 @@ export class CreateMenuComponent implements OnInit {
   foods: object[];
   menus: object[];
   menuTitle: string;
+  filter: string;
   foodDescription: string;
   count: number;
-  isNewMenu = true;
+  isNewMenu = false;
 
   constructor(private router: Router,
-     private foodService: FoodService, 
+     private foodService: FoodService,
      private menuService: MenuService,
      public snackBar: MatSnackBar,
      private service: MenuService) {
@@ -47,20 +48,20 @@ export class CreateMenuComponent implements OnInit {
   getallMenus(){
     this.menuService.getAllMenus().subscribe((data:any[]) => {
       this.menus = (data);
-      if(this.menus != null){
-          this.isNewMenu = false;
+      if(this.menus[0] == null){
+          this.isNewMenu = true;
       }
     });
-  }
-
-  update(menu){
-
   }
 
   updateMenu(event: any){
     this.menuService.getMenu(this.menuTitle).subscribe((data:Meal[]) => {
       this.datasource = (data);
     });
+  }
+
+  findToFilter() {
+
   }
 
   addMeal() {
@@ -107,7 +108,7 @@ export class CreateMenuComponent implements OnInit {
   }
 
   addMenuTitle(value: string){
-    this.isNewMenu = true;
+    this.isNewMenu = false;
     this.menuTitle = value;
   }
 

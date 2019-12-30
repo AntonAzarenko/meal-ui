@@ -2,17 +2,18 @@
   <mat-sidenav #drawer class="sidenav"
                fixedInViewport="true"
                [ngClass]="!{hidden: (isHandset$ | async)}"
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [attr.role]="!(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="!(isHandset$ | async)">
+               [opened]="(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="">Профиль</a>
-      <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
-      <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>
-      <a  *ngIf="!isLoginIn"class="nav-link" href="" routerLink="/login">Войти</a>
-      <a  *ngIf="isLoginIn"class="nav-link" (click)="logout()">Выйти</a>
+      <a mat-list-item class="disabled"  href="">Мое меню <span class="sr-only">(current)</span></a>
+      <a mat-list-item class="nav-link disabled" href="">Профиль</a>
+      <a mat-list-item class="nav-link disabled" href="" routerLink="/menu/edit">Создать меню</a>
+      <a mat-list-item class="nav-link" href=""  routerLink="/booker">Контроль денег</a>
+      <a mat-list-item *ngIf="!isLoginIn"  href="" routerLink="/login">Войти</a>
+      <a mat-list-item *ngIf="!isLoginIn"  href="" routerLink="/registration">Зарегистрироваться</a>
+      <a mat-list-item *ngIf="isLoginIn"  (click)="logout()">Выйти</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,18 +23,23 @@
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="(isHandset$ | async)">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Meal</span>
-     <!-- <a class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="">Профиль</a>
-      <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
-      <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>-->
+      <!-- <a class="nav-link" href="">Мое меню <span class="sr-only">(current)</span></a>
+       <a class="nav-link" href="">Профиль</a>
+       <a class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
+       <a class="nav-link" href="" routerLink="/booker">Контроль денег</a>-->
       <span class="spacer"></span>
-      <button *ngIf="!isLoginIn" routerLink="/login" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0"
+      <button *ngIf="!isLoginIn" routerLink="/login" style="margin-left: 6px"
+              class="btn btn-outline-primary my-2 my-sm-0"
               type="submit">
         Войти
+      </button>
+      <button *ngIf="!isLoginIn" routerLink="/registration" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0"
+              type="submit">
+        Регистрация
       </button>
       <button *ngIf="isLoginIn" (click)="logout()" style="margin-left: 6px" class="btn btn-outline-primary my-2 my-sm-0"
               type="submit">

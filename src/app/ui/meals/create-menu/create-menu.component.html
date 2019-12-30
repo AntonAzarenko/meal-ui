@@ -1,52 +1,60 @@
- <div *ngIf="isNewMenu" class="data-panel jumbotron">
-    <div class="row">
-      <div class="col-sm-2">
-        <mat-card class="mat-card table">
-            <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
-                <mat-option *ngFor="let menu of menus" (keyup)="updateMenu(menu)" [value]="menu">{{menu}}</mat-option>
-              </mat-select>
-          <mat-select placeholder="Выберите день" class="mat-select" [(ngModel)]="dayOfWeek">
-            <mat-option value="Monday">Понедельник</mat-option>
-            <mat-option value="Tuesday">Вторник</mat-option>
-            <mat-option value="Wednesday">Среда</mat-option>
-            <mat-option value="Thursday">Четверг</mat-option>
-            <mat-option value="Friday">Пятница</mat-option>
-            <mat-option value="Saturday">Суббота</mat-option>
-          </mat-select>
-          <mat-select placeholder="Выберите время" class="mat-select" [(ngModel)]="timeOfDay">
-            <mat-option value="Breakfast">Завтрак</mat-option>
-            <mat-option value="Lunch">Обед</mat-option>
-            <mat-option value="Lunch">Перекус</mat-option>
-            <mat-option value="Dinner">Ужин</mat-option>
-          </mat-select>
-          <mat-select placeholder="Выберите еду" class="mat-select" [(ngModel)]="food">
-            <mat-option *ngFor="let meal of foods" [value]="meal">{{meal.title}}</mat-option>
-          </mat-select>
-          <div class="absolute-Center">
-            <input type="text" [(ngModel)]="count" placeholder="Введите кол-во" name="count"  required="true"/>
-          <div class="comp">
-            <button mat-button (click)="addMeal()" class="absolute-Center">Добавить</button>
-          </div>
+<div *ngIf="!isNewMenu" class="data-panel jumbotron">
+  <div class="row">
+    <button mat-button>
+      <mat-icon style="color: #ed2700">local_atm</mat-icon>
+    </button>
+    <div class="col-sm-2">
+      <mat-card class="mat-card table">
+        <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
+          <mat-option *ngFor="let menu of menus" (keyup)="updateMenu(menu)" [value]="menu">{{menu}}</mat-option>
+        </mat-select>
+        <mat-select placeholder="Выберите день" class="mat-select" [(ngModel)]="dayOfWeek">
+          <mat-option value="Monday">Понедельник</mat-option>
+          <mat-option value="Tuesday">Вторник</mat-option>
+          <mat-option value="Wednesday">Среда</mat-option>
+          <mat-option value="Thursday">Четверг</mat-option>
+          <mat-option value="Friday">Пятница</mat-option>
+          <mat-option value="Saturday">Суббота</mat-option>
+        </mat-select>
+        <mat-select placeholder="Выберите время" class="mat-select" [(ngModel)]="timeOfDay">
+          <mat-option value="Breakfast">Завтрак</mat-option>
+          <mat-option value="Lunch">Обед</mat-option>
+          <mat-option value="Lunch">Перекус</mat-option>
+          <mat-option value="Dinner">Ужин</mat-option>
+        </mat-select>
+
+        <mat-select placeholder="Срдержание" class="mat-select" [(ngModel)]="filter">
+          <mat-option value="proteins">Белки</mat-option>
+          <mat-option value="carbohydrates">Углеводы</mat-option>
+          <mat-option value="fats">Жиры</mat-option>
+        </mat-select>
+
+       <!-- <mat-select placeholder="Выберите еду" class="mat-select" [(ngModel)]="food">
+          <mat-option *ngFor="let meal of foods" [value]="meal">{{meal.title}}</mat-option>
+        </mat-select>-->
+        <div class="absolute-Center">
+          <button mat-button (click)="findToFilter()" class="absolute-Center">Показать</button>
         </div>
-        </mat-card>
-      </div>
+      </mat-card>
     </div>
   </div>
-  <div *ngIf="!isNewMenu">
-      <div>
-        <mat-card class="mat-card table absolute-Center comp">
-          <h8>У вас еще нет меню введите название:</h8>
-          <mat-form-field class="login-full-width comp">
-            <input matInput type="text" [(ngModel)]="menuTitle" placeholder="Введите Название Меню" value="menuTitle" name="menuTitle"
-                   required="true"/>
-            <mat-error>Необходимо ввести название меню</mat-error>
-          </mat-form-field>
-        </mat-card>
-        <div class="comp">
-          <button mat-button (click)="addMenuTitle(menuTitle)" class="absolute-Center">Добавить</button>
-        </div>
-      </div>
+</div>
+<div *ngIf="isNewMenu">
+  <div>
+    <mat-card class="mat-card table absolute-Center comp">
+      <h8>У вас еще нет меню введите название:</h8>
+      <mat-form-field class="login-full-width comp">
+        <input matInput type="text" [(ngModel)]="menuTitle" placeholder="Введите Название Меню" value="menuTitle"
+               name="menuTitle"
+               required="true"/>
+        <mat-error>Необходимо ввести название меню</mat-error>
+      </mat-form-field>
+    </mat-card>
+    <div class="comp">
+      <button mat-button (click)="addMenuTitle(menuTitle)" class="absolute-Center">Добавить</button>
+    </div>
   </div>
+</div>
 
 
 
