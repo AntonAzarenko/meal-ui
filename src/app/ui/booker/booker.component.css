@@ -1,21 +1,30 @@
-.row {
-  padding: 20px 20px;
-}
+
 
 .diagram {
-
+  padding-left: 10px;
 }
 
 .absolute-Center {
   width: 100%;
   text-align: center;
 }
-
-profit {
-  background-color: #FF6384;
+.profit {
+  background-color: #57eda4;
 }
 
 .btn-size {
   width: 125px;
   height: 85px;
 }
+.icons {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.pr1 {
+  padding-top: 20px;
+}
+
+.right-panel {
+  margin-left: 10px;
+}
+
