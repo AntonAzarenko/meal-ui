@@ -57,7 +57,7 @@ export class BookerComponent implements OnInit {
   getReport() {
     this.bookerService.getReport(this.currentYear, this.currentMonth).subscribe((data: any) => {
       this.price = data;
-      this.budget = 'минус - ' + this.price.profit;
+      this.budget = 'Баланс - ' + this.price.profit;
       this.dataInit();
     });
   }
@@ -65,7 +65,7 @@ export class BookerComponent implements OnInit {
   getCurrentReport() {
     this.bookerService.getCurrentReport().subscribe((data: any) => {
       this.price = data;
-      this.budget = 'минус - ' + this.price.profit;
+      this.budget = 'Баланс - ' + this.price.profit;
       this.dataInit();
       var curdate = new Date(this.price.currentDateTime);
       this.currentMonth = curdate.getMonth() + 1;
@@ -78,7 +78,6 @@ export class BookerComponent implements OnInit {
     this.PieChart = new Chart('pie', {
       type: 'doughnut',
       data: {
-        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь', 'Питомцы', 'Кредиты', 'Дом'],
         datasets: [
           {
             label: 'First Dataset',
@@ -92,11 +91,22 @@ export class BookerComponent implements OnInit {
               '#ed2700',
               '#f186ff'
             ],
-            fill: false,
-            borderColor: '#4bc0c0'
+            borderColor: '#030d21',
           },
-        ]
-      }
+
+        ],
+        labels: ['Еда', 'Бензин', 'Одежда', 'Алкоголь', 'Питомцы', 'Кредиты', 'Дом'],
+      },
+      options: {
+        legend: {
+          labels: {
+            fontSize: 10,
+            boxWidth: 8,
+          },
+
+        },
+      },
+
     });
   }
 
@@ -105,7 +115,7 @@ export class BookerComponent implements OnInit {
     this.isAdding = true;
   }
 
-  back(){
+  back() {
     this.isAdding = false;
     this.getCurrentReport();
   }

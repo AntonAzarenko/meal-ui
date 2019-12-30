@@ -1,22 +1,22 @@
-<div class="jumbotron">
-  <mat-card>
+<div class="container">
+
     <div class="absolute-Center">
-      <h7>Добавляем тип {{type}}</h7>
+      <input disabled="disabled" class="absolute-Center" placeholder="Добавляем тип {{type}}"/>
     </div>
-  </mat-card>
+
   <div class="absolute-Center">
     <input type="text" [(ngModel)]="check" placeholder="Сумма чека" name="menuTitle"  required="true"/>
   </div>
   <div class="absolute-Center input-comment">
-    <input disabled="disabled" type="text" [(ngModel)]="comment" placeholder="Коментарий"
+    <input  type="text" [(ngModel)]="comment" placeholder="Коментарий"
            name="menuTitle"/>
   </div>
   <div class="absolute-Center">
     <div>
-      <button mat-button (click)="addNewRecord()">Добавить</button>
+      <button mat-raised-button color="primary" (click)="addNewRecord()">Добавить</button>
     </div>
     <div>
-      <button mat-button (click)="back()">Назад</button>
+      <button mat-button color="primary" (click)="back()">Назад</button>
     </div>
   </div>
 </div>

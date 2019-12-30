@@ -3,6 +3,7 @@ import {Booker} from '../../common/domain/Booker';
 import {BookerService} from '../../../services/booker.service';
 import {Router} from '@angular/router';
 import {BookerComponent} from '../booker.component';
+import {forEachComment} from 'tslint';
 
 @Component({
   selector: 'app-add-record',
@@ -22,7 +23,7 @@ export class AddRecordComponent implements OnInit {
   }
 
   addNewRecord() {
-    this.booker = new Booker(this.check, this.type);
+    this.booker = new Booker(this.check, this.type, this.comment);
     this.bookerService.save(this.booker).subscribe();
     window.location.reload();
   }
