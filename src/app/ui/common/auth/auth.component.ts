@@ -59,7 +59,6 @@ export class AuthComponent implements OnInit {
         this.reloadPage();
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
         this.isLoginFailed = true;
         this.snackBar.open(error.error.message, 'ERROR', {

@@ -1,5 +1,4 @@
 
-
 .diagram {
   padding-left: 10px;
 }
@@ -8,6 +7,7 @@
   width: 100%;
   text-align: center;
 }
+
 .profit {
   background-color: #57eda4;
 }
@@ -16,14 +16,27 @@
   width: 125px;
   height: 85px;
 }
+
+.column-icons {
+  padding-top: 65px;;
+}
+
 .icons {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .pr1 {
   padding-top: 20px;
 }
 
+/*.left-panel {
+  margin-left: 5px;
+}*/
+
+.icon{
+  padding-left: 10px;
+}
 .right-panel {
   margin-left: 10px;
 }

@@ -12,9 +12,10 @@ import {Price} from '../common/domain/Price';
 export class BookerComponent implements OnInit {
 
   isAdding: boolean = false;
+  isStatistic: boolean = false;
+  isMainShow: boolean = true;
   budget: string;
   public category: string;
-  comment: string;
   booker: Booker;
   price: Price = new Price();
   PieChart: any;
@@ -39,7 +40,6 @@ export class BookerComponent implements OnInit {
       this.currentYear = this.currentYear - 1;
     }
     this.getReport();
-    console.log(this.currentMonth);
   }
 
   right() {
@@ -113,14 +113,22 @@ export class BookerComponent implements OnInit {
   moveToAddRecord(value: string) {
     this.category = value;
     this.isAdding = true;
+    this.isMainShow = false;
   }
 
   back() {
     this.isAdding = false;
+    this.isStatistic = false;
+    this.isMainShow = true;
     this.getCurrentReport();
   }
 
   reloadPage() {
     window.location.reload();
+  }
+
+  showStatistics() {
+    this.isStatistic = true;
+    this.isMainShow = false;
   }
 }

@@ -50,10 +50,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import { AddRecordComponent } from './booker/add-record/add-record.component';
 import {ProgressSpinnerModule} from 'primeng/primeng';
 import { RegistrationComponent } from './common/auth/registration/registration.component';
+import { OutcomeComponent } from './booker/outcome/outcome.component';
+import { MenuComponent } from './meals/menu/menu.component';
 
 @NgModule({
 
-  declarations: [MainNavComponent, AuthComponent, AddRecordComponent, RegistrationComponent],
+  declarations: [MainNavComponent, AuthComponent, AddRecordComponent, RegistrationComponent, OutcomeComponent, MenuComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
@@ -109,7 +111,8 @@ import { RegistrationComponent } from './common/auth/registration/registration.c
   exports: [
     MainNavComponent,
     ChartModule,
-    AddRecordComponent
+    AddRecordComponent,
+    OutcomeComponent
   ]
 })
 export class UiModule {

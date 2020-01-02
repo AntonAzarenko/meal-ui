@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Meal} from '../ui/common/domain/Meal';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Filter} from '../ui/common/domain/Filter';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,11 +15,16 @@ const httpOptions = {
 })
 export class FoodService {
 
-  private URL= environment.URI + "/api/foods/";
+  private URL = environment.URI + '/api/foods/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  public getAllFoods(){
-      return this.http.get(this.URL);
+  public getAllFoods() {
+    return this.http.get(this.URL);
+  }
+
+  getFoodsByFilter(filter: Filter) {
+    return this.http.post(this.URL + 'filter/', filter);
   }
 }

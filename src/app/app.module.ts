@@ -45,6 +45,7 @@ import {BookerComponent} from './ui/booker/booker.component';
 import {UiModule} from './ui/ui.module';
 import {ChartModule} from 'primeng/chart';
 import {ProgressSpinnerModule} from 'primeng/primeng';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
     ReactiveFormsModule,
     UiModule,
     ChartModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    TableModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

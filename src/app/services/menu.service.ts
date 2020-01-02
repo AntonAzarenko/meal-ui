@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Meal} from '../ui/common/domain/Meal';
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,19 +14,24 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MenuService {
-  private URL= environment.URI + "/api/menu/"
+  private URL = environment.URI + '/api/menu/';
 
-  constructor(private http: HttpClient) { }
-
-  save(meal: Meal) {
-    return this.http.post<Meal>(this.URL + "save", meal, httpOptions)
+  constructor(private http: HttpClient) {
   }
 
-  getMenu(name: string){
-    return this.http.get(this.URL + name)
+  save(meal: Meal[]) {
+    return this.http.post<Meal>(this.URL + 'save', meal, httpOptions);
+  }
+
+  getMenu(name: string) {
+    return this.http.get(this.URL + name);
   }
 
   getAllMenus() {
-    return this.http.get(this.URL + "findallMenu");
+    return this.http.get(this.URL + 'findallMenu');
+  }
+
+  getAllFoodOfMenuAndDay(day: string, time: string, menuTitle: string) {
+    return this.http.get(this.URL + menuTitle + '/' + day + '/' + time);
   }
 }

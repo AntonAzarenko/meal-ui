@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -18,11 +18,10 @@ export class AuthService {
   private loginUrl = environment.URI + '/api/auth/signin';
   private signupUrl = environment.URI + '/api/auth/signup';
 
-  constructor(private http:  HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
-    console.log(credentials);
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
 

@@ -1,0 +1,40 @@
+<div class="container">
+  <table mat-table
+         [dataSource]="dataSource" multiTemplateDataRows
+         class="mat-elevation-z8">
+    <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+        <div class="example-element-detail"
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="example-element-diagram">
+            <div class="example-element-position"> {{element.position}} </div>
+            <div class="example-element-symbol">
+              <mat-icon style="color: #ed2700">{{element.icon}}</mat-icon></div>
+            <div class="example-element-name"> {{element.price}} </div>
+            <div class="example-element-weight"> {{element.type}} </div>
+          </div>
+          <div class="example-element-description">
+            {{element.comment}}
+            <span class="example-element-description-attribution"></span>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+  <div class="but-back absolute-Center">
+    <button mat-button color="primary" (click)="back()">Назад</button>
+  </div>
+</div>

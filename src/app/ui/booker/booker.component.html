@@ -1,5 +1,5 @@
 <div class="">
-  <div *ngIf="!isAdding">
+  <div *ngIf="isMainShow">
     <div>
       <div class="absolute-Center">
         <button mat-button (click)="left()"><</button>
@@ -8,46 +8,51 @@
       </div>
     </div>
     <div class="row absolute-Center">
-      <div class="col-2 absolute-Center ">
+      <div class="col-2 absolute-Center column-icons left-panel">
         <div class="icons">
-        <a class="icons"  (click)="moveToAddRecord('HOME')">
-          <mat-icon style="color: #f186ff">home</mat-icon>
-        </a>
+          <a class="icons icon" (click)="moveToAddRecord('HOME')">
+            <mat-icon style="color: #f186ff">home</mat-icon>
+          </a>
         </div>
-        <div class="icons">
-        <a class="icons"  (click)="moveToAddRecord('FOOD')">
-          <mat-icon style="color: #FF6384">shopping_cart</mat-icon>
-        </a>
+        <div class="icons icon">
+          <a class="icons" (click)="moveToAddRecord('FOOD')">
+            <mat-icon style="color: #FF6384">shopping_cart</mat-icon>
+          </a>
         </div>
-        <div class="icons">
-        <a class="icons"  (click)="moveToAddRecord('GAS')">
-          <mat-icon style="color: #3ec0a5">local_gas_station</mat-icon>
-        </a>
+        <div class="icons icon">
+          <a class="icons" (click)="moveToAddRecord('GAS')">
+            <mat-icon style="color: #3ec0a5">local_gas_station</mat-icon>
+          </a>
         </div>
-        <div class="icons">
-        <a class="icons "  (click)="moveToAddRecord('PETS')">
-          <mat-icon style="color: #e9ed11">pets</mat-icon>
-        </a>
+        <div class="icons icon">
+          <a class="icons " (click)="moveToAddRecord('PETS')">
+            <mat-icon style="color: #e9ed11">pets</mat-icon>
+          </a>
         </div>
       </div>
       <div class="col-8 absolute-Center ">
-        <canvas class="absolute-Center" id="pie" height="500" width="500">asdsa</canvas>
+        <canvas class="absolute-Center" style="margin-left: 20px" id="pie" height="500" width="500">asdsa</canvas>
       </div>
-      <div class="col-2 absolute-Center ">
+      <div class="col-2 absolute-Center column-icons ">
         <div class="icons right-panel">
-        <a class="icons right-panel" (click)="moveToAddRecord('DRINK')">
-          <mat-icon style="color: #6fabed">local_bar</mat-icon>
-        </a>
+          <a class="icons right-panel" (click)="moveToAddRecord('DRINK')">
+            <mat-icon style="color: #6fabed">local_bar</mat-icon>
+          </a>
         </div>
         <div class="icons right-panel">
-        <a class="icons right-panel"  (click)="moveToAddRecord('CREDIT')">
-          <mat-icon style="color: #ed2700">local_atm</mat-icon>
-        </a>
+          <a class="icons right-panel" (click)="moveToAddRecord('CREDIT')">
+            <mat-icon style="color: #ed2700">local_atm</mat-icon>
+          </a>
         </div>
         <div class="icons right-panel">
-        <a class="icons right-panel"  (click)="moveToAddRecord('CLOTHES')">
-          <mat-icon style="color: #0809ed">accessibility</mat-icon>
-        </a>
+          <a class="icons right-panel" (click)="moveToAddRecord('CLOTHES')">
+            <mat-icon style="color: #0809ed">accessibility</mat-icon>
+          </a>
+        </div>
+        <div class="icons right-panel">
+          <a class="icons right-panel" (click)="showStatistics()">
+            <mat-icon style="color: #000408">line_weight</mat-icon>
+          </a>
         </div>
       </div>
     </div>
@@ -58,4 +63,9 @@
   <div *ngIf="isAdding">
     <app-add-record [type]="category"></app-add-record>
   </div>
+  <div *ngIf="isStatistic">
+    <app-outcome [month]="currentMonth" [year]="currentYear" ></app-outcome>
+  </div>
 </div>
+
+
