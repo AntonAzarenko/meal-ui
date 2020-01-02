@@ -22,7 +22,6 @@ export class BookerService {
   }
 
   save(booker: Booker) {
-    console.log(booker); //TODO remove
     return this.http.post<Meal>(this.bookerUrl, booker, httpOptions);
   }
 
@@ -36,5 +35,9 @@ export class BookerService {
 
   getCurrentReport(){
     return this.http.get(this.bookerUrl + 'report/');
+  }
+
+  getOutcome(year: number, month: number){
+    return this.http.get(this.bookerUrl + 'outcome/' + year+ '/' + month);
   }
 }

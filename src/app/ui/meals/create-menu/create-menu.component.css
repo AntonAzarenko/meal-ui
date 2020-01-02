@@ -8,10 +8,10 @@
   padding-bottom: 8px;
 }
 
-.table-container {
+/*.table-container {
   height: 400px;
   overflow: auto;
-}
+}*/
 
 .absolute-Center {
   width: 100%;
@@ -22,3 +22,12 @@
   padding-top: 8px;
   padding-bottom: 8px;
 }
+table {
+  width: 100%;
+}
+
+.mat-select {
+ padding-left: 15px;
+  padding-top: 10px;
+}
+

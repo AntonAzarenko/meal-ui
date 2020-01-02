@@ -26,7 +26,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form);
 
     this.signupInfo = new SignUpInfo(
       this.form.username,
@@ -34,12 +33,10 @@ export class RegistrationComponent implements OnInit {
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
         this.snackBar.open(error.error.message, 'ERROR', {

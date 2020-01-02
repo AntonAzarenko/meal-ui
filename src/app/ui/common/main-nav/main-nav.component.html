@@ -7,9 +7,9 @@
                [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item class="disabled"  href="">Мое меню <span class="sr-only">(current)</span></a>
+      <a mat-list-item routerLink="/mymenu">Мое меню <span class="sr-only">(current)</span></a>
       <a mat-list-item class="nav-link disabled" href="">Профиль</a>
-      <a mat-list-item class="nav-link disabled" href="" routerLink="/menu/edit">Создать меню</a>
+      <a mat-list-item class="nav-link" href="" routerLink="/menu/edit">Создать меню</a>
       <a mat-list-item class="nav-link" href=""  routerLink="/booker">Контроль денег</a>
       <a mat-list-item *ngIf="!isLoginIn"  href="" routerLink="/login">Войти</a>
       <a mat-list-item *ngIf="!isLoginIn"  href="" routerLink="/registration">Зарегистрироваться</a>
