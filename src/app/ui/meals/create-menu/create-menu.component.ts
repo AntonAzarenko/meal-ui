@@ -53,6 +53,7 @@ export class CreateMenuComponent implements OnInit {
   getAllFoods() {
     this.foodService.getAllFoods().subscribe((data: any[]) => {
       this.foods = new MatTableDataSource<Meal>(data);
+      this.getTitleOfCurrentMenu();
     });
   }
 
@@ -170,5 +171,11 @@ export class CreateMenuComponent implements OnInit {
     this.isMainMenu =true;
     this.isShowFilteredMenu = false;
     this.selection.clear();
+  }
+
+  private getTitleOfCurrentMenu() {
+    this.menuService.getTitleOfCurrentMenu().subscribe((data: any) => {
+      this.menuTitle = data;
+    })
   }
 }

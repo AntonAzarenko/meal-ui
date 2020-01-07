@@ -1,0 +1,73 @@
+.absolute-Center {
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+.header {
+  font-size: 18px;
+  color: #000408;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #6e86ef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+  background: rgba(181, 179, 183, 0.26);
+}
+
+.example-element-detail.table {
+  width: 100%;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+  background: #6e86ef;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 500px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.but-back {
+  padding-top: 15px;
+}
+
+.absolute-Center {
+  width: 100%;
+  text-align: center;
+}
+
+

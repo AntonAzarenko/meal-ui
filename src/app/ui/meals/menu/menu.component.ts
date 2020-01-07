@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
   columnsToDisplay = ['food', 'count'];
   expandedElement: Menus | null;
 
-  constructor(private menuService: MenuService,) {
+  constructor(private menuService: MenuService) {
   }
 
   ngOnInit() {

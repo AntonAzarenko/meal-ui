@@ -34,4 +34,11 @@ export class MenuService {
   getAllFoodOfMenuAndDay(day: string, time: string, menuTitle: string) {
     return this.http.get(this.URL + menuTitle + '/' + day + '/' + time);
   }
+
+  getTodayMenu() {
+    return this.http.get(this.URL);
+  }
+  getTitleOfCurrentMenu(){
+    return this.http.get(this.URL + "title");
+  }
 }
