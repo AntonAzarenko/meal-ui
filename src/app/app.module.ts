@@ -46,6 +46,7 @@ import {UiModule} from './ui/ui.module';
 import {ChartModule} from 'primeng/chart';
 import {ProgressSpinnerModule} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
+import { ProgressBarComponent } from './util/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {TableModule} from 'primeng/table';
     NavbarComponent,
     CreateMenuComponent,
     MealCreateInfoComponent,
-    BookerComponent
+    BookerComponent,
+    ProgressBarComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 

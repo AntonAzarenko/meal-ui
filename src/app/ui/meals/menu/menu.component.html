@@ -1,8 +1,8 @@
 <div *ngIf="isMainMenu" class="absolute-Center">
+  <div>
+    <button mat-button routerLink="/menu/edit" color="warn">Добавить еду</button>
+  </div>
   <div class="but-back absolute-Center">
-    <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
-      <mat-option *ngFor="let menu of menus" [value]="menu">{{menu}}</mat-option>
-    </mat-select>
     <button mat-button (click)="choiceTime('Monday')" color="primary">Понедельник</button>
   </div>
   <div class="but-back absolute-Center">
@@ -27,9 +27,6 @@
 
 <div *ngIf="isShowTime" class="absolute-Center">
   <div class="but-back absolute-Center">
-    <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
-      <mat-option *ngFor="let menu of menus" [value]="menu">{{menu}}</mat-option>
-    </mat-select>
     <button mat-button (click)="showMenu('Breakfast')" color="primary">Завтрак</button>
   </div>
   <div class="but-back absolute-Center">
@@ -60,15 +57,16 @@
         <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
           <div class="example-element-detail"
             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-            <div class="example-element-diagram">
-              <div class="example-element-position"> {{element.position}} </div>
-              <div class="example-element-symbol">
-                <mat-icon style="color: #ed2700">{{element.icon}}</mat-icon></div>
-              <div class="example-element-name"> {{element.price}} </div>
-              <div class="example-element-weight"> {{element.type}} </div>
-            </div>
+
             <div class="example-element-description">
-              {{element.comment}}
+              <div>
+                Белки - {{element.protein}}</div>
+              <div>
+                Жиры - {{element.fats}}
+              </div>
+              <div>
+                Углеводы - {{element.carbohydrates}}
+              </div>
               <span class="example-element-description-attribution"></span>
             </div>
           </div>

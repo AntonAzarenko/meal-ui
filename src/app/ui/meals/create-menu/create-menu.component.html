@@ -1,8 +1,8 @@
 <div *ngIf="isMainMenu" class="data-panel jumbotron">
   <div class="row">
-    <button mat-button>
+   <!-- <button mat-button>
       <mat-icon style="color: #ed2700">local_atm</mat-icon>
-    </button>
+    </button>-->
     <div class="col-sm-2">
       <mat-card class="mat-card table">
         <mat-select placeholder="Выберите Меню" class="mat-select" [(ngModel)]="menuTitle">
@@ -60,7 +60,7 @@
     <table *ngIf="isShowFilteredMenu" mat-table [dataSource]="foods" class="mat-elevation-z8">
 
       <!-- Checkbox Column -->
-      <ng-container style="padding-top: 10px" matColumnDef="select">
+      <ng-container class="mat-column-select" style="padding-top: 10px" matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox (change)="$event ? masterToggle() : null"
                         [checked]="selection.hasValue() && isAllSelected()"
@@ -68,7 +68,7 @@
                         [aria-label]="checkboxLabel()">
           </mat-checkbox>
         </th>
-        <td mat-cell *matCellDef="let row">
+        <td class="mat-column-select" mat-cell *matCellDef="let row">
           <mat-checkbox (click)="$event.stopPropagation()"
                         (change)="$event ? selection.toggle(row) : null"
                         [checked]="selection.isSelected(row)"

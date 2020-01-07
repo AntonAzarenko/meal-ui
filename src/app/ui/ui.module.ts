@@ -52,10 +52,11 @@ import {ProgressSpinnerModule} from 'primeng/primeng';
 import { RegistrationComponent } from './common/auth/registration/registration.component';
 import { OutcomeComponent } from './booker/outcome/outcome.component';
 import { MenuComponent } from './meals/menu/menu.component';
+import { TodayMenuComponent } from './meals/today-menu/today-menu.component';
 
 @NgModule({
 
-  declarations: [MainNavComponent, AuthComponent, AddRecordComponent, RegistrationComponent, OutcomeComponent, MenuComponent],
+  declarations: [MainNavComponent, AuthComponent, AddRecordComponent, RegistrationComponent, OutcomeComponent, MenuComponent, TodayMenuComponent],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 
